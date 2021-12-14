@@ -6,7 +6,9 @@ The is a forums site for the Ghibli Studio Films. From the homepage, you will be
 
 ### Wireframe
 
-![Wireframe](./path)
+![Wireframe](./images/Database_schema.png)
+![Wireframe](./images/Ghibli_Forums_Wireframe.png)
+![Wireframe](./images/Ghibli_Forums_Components_Tree.png)
 
 
 ### User Stories
