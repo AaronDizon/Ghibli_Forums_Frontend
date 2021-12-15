@@ -3,3 +3,45 @@
 }
 
 
+.homepage {
+  height: 100vmin;
+  background: blue;
+}
+
+.movieContainer {
+  display: flex;
+  flex-wrap: row;
+  border: 1px solid rgba(60, 58, 58, 0.783);
+  max-width: 95%;
+  height: 95%;
+  background: red;
+}
+
+.movieDisplay {
+  display: flex;
+  flex-direction: column;
+  
+  /* align-items: center; */
+  
+}
+
+.movieDisplay img {
+  height: 30vmin;
+  width: auto;
+}
+
+.forumPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movieInfo img{
+  height: 40vmin;
+  width: auto;
+}
