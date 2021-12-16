@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from './context/UserContext'
 import  axios  from 'axios';
 import env from 'react-dotenv'
 import './App.css';
@@ -12,6 +13,26 @@ import MovieForumPage from './components/MovieForumPage';
 
 function App() {
 
+  const value = useContext(UserContext)
+  const { userState } = useContext(UserContext)
+  const [ user, setUser ] = userState
+
+  const fetchUser = () => {
+    const userId = localStorage.getItem('userId')
+    if (userId) {
+      axios.get(`${env.BACKEND_URL}/user/verify`, {
+        headers: {
+          Authorization: userId
+        }
+      })
+      .then((response) => {
+        
+        setUser(response.data.user)
+        console.log(response.data.user)
+        console.log('fetchUser')
+      })
+    }
+  }
 
 
   return (
@@ -20,8 +41,20 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage/> } />
         <Route path='/movie/:movieId' element={<MovieForumPage />} />
-        <Route path='/signup' element={ <Signup/> } />
-        <Route path='/login' element={ <Login /> } />
+        <Route path='/signup' element=
+        { user.id
+        ?
+        <Navigate to='/' />
+        :
+        <Signup/> 
+        } />
+        <Route path='/login' element=
+        { user.id 
+        ?
+        <Navigate to='/' />
+        :
+        <Login /> 
+        } />
       </Routes>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState , useEffect } from 'react';
+import { useState , useEffect, useContext } from 'react';
+import { UserContext } from '../context/UserContext'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios'
 import env from 'react-dotenv'
@@ -10,6 +11,7 @@ import MovieForumPage from '../components/MovieForumPage';
 
 const Homepage = () => {
 
+   
     const [allMovies, setAllMovies] = useState([])
 
     console.log(`${env.BACKEND_URL}`)
