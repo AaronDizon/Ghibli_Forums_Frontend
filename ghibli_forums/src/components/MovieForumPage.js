@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import env from 'react-dotenv'
 import axios from "axios"
+import Threadform from './Threadform'
 
 const MovieForumPage = () => {
 
@@ -12,7 +13,7 @@ const MovieForumPage = () => {
     const getOneMovie = async () => {
         try {
              const movieSelected = await axios.get(`${env.BACKEND_URL}/movies/${movieId}`)
-             console.log(movieSelected)
+            //  console.log(movieSelected)
              setMovie(movieSelected.data.movie)
 
         } catch (err) {
@@ -46,6 +47,7 @@ const MovieForumPage = () => {
                     {movie.release_date}
                 </div>
             </div>
+            <Threadform movie={movie} />
         </div>
     )
 }

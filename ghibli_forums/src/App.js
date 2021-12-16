@@ -34,6 +34,7 @@ function App() {
     }
   }
 
+    useEffect(fetchUser, [])
 
   return (
     <div className="App">
