@@ -20,7 +20,7 @@ const Threadform = (props) => {
             console.log('post is made to backend')
             await axios.post(`${env.BACKEND_URL}/user/${user.id}/thread/${props.movie.id}`, {description})
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 setDescription('')
             })
         }

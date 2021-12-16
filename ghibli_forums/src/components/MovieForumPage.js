@@ -5,6 +5,7 @@ import env from 'react-dotenv'
 import axios from "axios"
 import Threadform from './Threadform'
 import Commentform from './Commentform'
+import CommentList from './CommentList'
 
 const MovieForumPage = () => {
 
@@ -66,6 +67,7 @@ const MovieForumPage = () => {
                    <div key={i} className='singleThreadContainer'>
                        <p>{thread.description}</p>
                        <Commentform thread={thread} />
+                       <CommentList threadId={thread.id}/>
                     </div>
                )
            })}

@@ -18,7 +18,7 @@ const Commentform = (props) => {
         // console.log('comment made')
         await axios.post(`${env.BACKEND_URL}/user/${user.id}/thread/${props.thread.id}/comment`, {description})
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             setDescription('')
         })
         setShow(false)
