@@ -6,6 +6,7 @@ import axios from "axios"
 import Threadform from './Threadform'
 import Commentform from './Commentform'
 import CommentList from './CommentList'
+import Comments from './Comments'
 
 const MovieForumPage = () => {
 
@@ -28,7 +29,7 @@ const MovieForumPage = () => {
     const getThreads = async () => {
         try{
             const threads = await axios.get(`${env.BACKEND_URL}/movies/${movieId}/threads`)
-            console.log(threads)
+            // console.log(threads)
             setThreadList(threads.data)
         }catch (err) {
             console.log(err)
@@ -66,8 +67,9 @@ const MovieForumPage = () => {
                return (
                    <div key={i} className='singleThreadContainer'>
                        <p>{thread.description}</p>
-                       <Commentform thread={thread} />
-                       <CommentList threadId={thread.id}/>
+                       <Comments thread={thread} movie={movie}/>
+                       {/* <Commentform thread={thread} />
+                       <CommentList threadId={thread.id} /> */}
                     </div>
                )
            })}

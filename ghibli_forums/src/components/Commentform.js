@@ -22,10 +22,11 @@ const Commentform = (props) => {
             setDescription('')
         })
         setShow(false)
+        props.getComments()
     }
     // console.log(user.id)
-    // console.log(props.thread.id)
-
+    console.log(user)
+    console.log(props.thread)
     return (
         <div className='commentFormContainer'>
             {show
