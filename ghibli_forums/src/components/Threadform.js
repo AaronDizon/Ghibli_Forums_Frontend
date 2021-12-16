@@ -13,15 +13,20 @@ const Threadform = (props) => {
     const [description, setDescription] = useState('')
 
     const postForm = async (e) => {
-        e.preventDefault()
         console.log('working')
-        await axios.post(`${env.BACKEND_URL}/user/${user.id}/thread/${props.movie.id}`, {description})
-        .then((response) => {
-            console.log(response)
-        })
+        if(description === '') {
+            alert(`input can't be blank`)
+        } else {
+            console.log('post is made to backend')
+            await axios.post(`${env.BACKEND_URL}/user/${user.id}/thread/${props.movie.id}`, {description})
+            .then((response) => {
+                console.log(response)
+                setDescription('')
+            })
+        }
     }
-    console.log(props.movie.id)
-    console.log(user.id)
+    // console.log(props.movie.id)
+    // console.log(user.id)
     return (
         <div className="threadFormContainer">
         <h3>Make a thread!</h3>

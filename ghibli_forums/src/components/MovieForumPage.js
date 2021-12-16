@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom"
 import env from 'react-dotenv'
 import axios from "axios"
 import Threadform from './Threadform'
+import Commentform from './Commentform'
 
 const MovieForumPage = () => {
 
     const [movie, setMovie] = useState({})
+    const [threadList, setThreadList] = useState([])
     const {movieId} = useParams()
 
     const getOneMovie = async () => {
@@ -22,6 +24,17 @@ const MovieForumPage = () => {
     }
     useEffect(getOneMovie, [])
 
+    const getThreads = async () => {
+        try{
+            const threads = await axios.get(`${env.BACKEND_URL}/movies/${movieId}/threads`)
+            console.log(threads)
+            setThreadList(threads.data)
+        }catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(getThreads, [threadList.length])
 
     return (
         <div className='forumPage'>
@@ -47,7 +60,15 @@ const MovieForumPage = () => {
                     {movie.release_date}
                 </div>
             </div>
-            <Threadform movie={movie} />
+            <Threadform movie={movie} threadList={threadList}/>
+           {threadList.map((thread, i)=> {
+               return (
+                   <div key={i} className='singleThreadContainer'>
+                       <p>{thread.description}</p>
+                       <Commentform thread={thread} />
+                    </div>
+               )
+           })}
         </div>
     )
 }
