@@ -21,6 +21,7 @@ const CommentList = (props) => {
                 {props.comments.map((comment, i)=> {
                     return (
                         <div key={i} className='singleCommentContainer'>
+                            <p>{comment.user.name}</p>
                             <p>{comment.description}</p>
                         </div>
                     )

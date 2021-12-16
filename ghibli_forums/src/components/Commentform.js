@@ -25,8 +25,8 @@ const Commentform = (props) => {
         props.getComments()
     }
     // console.log(user.id)
-    console.log(user)
-    console.log(props.thread)
+    // console.log(user)
+    // console.log(props.thread)
     return (
         <div className='commentFormContainer'>
             {show

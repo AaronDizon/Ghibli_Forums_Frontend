@@ -31,6 +31,7 @@ const MovieForumPage = () => {
             const threads = await axios.get(`${env.BACKEND_URL}/movies/${movieId}/threads`)
             // console.log(threads)
             setThreadList(threads.data)
+            console.log(threadList)
         }catch (err) {
             console.log(err)
         }
@@ -66,6 +67,7 @@ const MovieForumPage = () => {
            {threadList.map((thread, i)=> {
                return (
                    <div key={i} className='singleThreadContainer'>
+                       <p> {thread.user.name}</p>
                        <p>{thread.description}</p>
                        <Comments thread={thread} movie={movie}/>
                        {/* <Commentform thread={thread} />
