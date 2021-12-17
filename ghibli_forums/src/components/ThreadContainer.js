@@ -43,7 +43,7 @@ const ThreadContainer = (props) => {
             {showEdit 
             ?   
             <form className="editThreadForm" onSubmit={editThread}>
-                <input type="tex" placeholder={`${props.thread.description}`} onChange={(e)=>{setDescription(e.target.value)}} />
+                <input type="text" placeholder={`${props.thread.description}`} onChange={(e)=>{setDescription(e.target.value)}} />
                 <button className="threadEditButton" type="submit">Change</button>
             </form>
             :   

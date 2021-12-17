@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import env from 'react-dotenv'
 import axios from "axios"
+import CommentContainer from './CommentContainer'
 
 const CommentList = (props) => {
 
@@ -10,6 +11,7 @@ const CommentList = (props) => {
     const [ show, setShow ] = useState(false)
 
    
+
 
     // console.log(props.threadId)
     return (
@@ -20,9 +22,9 @@ const CommentList = (props) => {
                 <p onClick={()=>{setShow(false)}}>Hide Comments</p>
                 {props.comments.map((comment, i)=> {
                     return (
-                        <div key={i} className='singleCommentContainer'>
+                        <div key={i} className='singleComment'>
                             <p>{comment.user.name}</p>
-                            <p>{comment.description}</p>
+                            <CommentContainer comment={comment} getComments={props.getComments}/>
                         </div>
                     )
                 })}
