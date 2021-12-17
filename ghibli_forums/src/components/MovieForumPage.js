@@ -8,6 +8,7 @@ import Threadform from './Threadform'
 import Commentform from './Commentform'
 import CommentList from './CommentList'
 import Comments from './Comments'
+import ThreadContainer from './ThreadContainer'
 
 const MovieForumPage = () => {
 
@@ -19,8 +20,7 @@ const MovieForumPage = () => {
     const [threadList, setThreadList] = useState([])
     const {movieId} = useParams()
 
-    const [description, setDesciption] = useState('')
-    const [showEdit, setShowEdit] = useState(false)
+    
     
     console.log({movieId})
 
@@ -48,6 +48,7 @@ const MovieForumPage = () => {
     }
 
     useEffect(getThreads, [threadList.length])
+
 
     return (
         <div className='forumPage'>
@@ -78,7 +79,7 @@ const MovieForumPage = () => {
                return (
                    <div key={i} className='singleThreadContainer'>
                        <p> {thread.user.name}</p>
-                       <p>{thread.description}</p>
+                       <ThreadContainer thread={thread}/>
                        <Comments thread={thread} movie={movie}/>
                        {/* <Commentform thread={thread} />
                        <CommentList threadId={thread.id} /> */}
@@ -96,32 +97,3 @@ export default MovieForumPage
 // <p>{thread.description}</p>
 // <Comments thread={thread} movie={movie}/>
 
-/*{ show edit is true ?
-    show(an input with type text when on change, placeholder = thread.description, setdescription to e.target.value)
-    show button that calls an axios put with the req.body being the description and sets the showEdit to false
-    :
-    user.id === thread.user.id?
-    show thread.description
-    show button when onClick sets show edit to true
-    :show thread.description
-}
-*/
-
-/*
-
-{showEdit 
-?   
-<form className="editThreadForm">
-    <input type="tex" placeholder=`${thread.description}` onChange{(e)=>{setDescription}} />
-    <input className="threadEditButton" type="submit" oncClick={()=>{setShowEdit(false)}}value="Change" />
-</form>
-:   
-user.id === thread.user.id
-?
-<p>{thread.description}</p>
-<button onClick={()=>{setShowEdit(true)}}
-:
-<p>{thread.description}</p>
-}
-
-*/
