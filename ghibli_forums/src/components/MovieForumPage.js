@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { UserContext } from '../context/UserContext'
 import { useParams } from "react-router-dom"
 import env from 'react-dotenv'
 import axios from "axios"
@@ -10,9 +11,18 @@ import Comments from './Comments'
 
 const MovieForumPage = () => {
 
+    const value = useContext(UserContext)
+    const { userState } = useContext(UserContext)
+    const [ user, setUser ] = userState
+
     const [movie, setMovie] = useState({})
     const [threadList, setThreadList] = useState([])
     const {movieId} = useParams()
+
+    const [description, setDesciption] = useState('')
+    const [showEdit, setShowEdit] = useState(false)
+    
+    console.log({movieId})
 
     const getOneMovie = async () => {
         try {
@@ -80,3 +90,38 @@ const MovieForumPage = () => {
 }
 
 export default MovieForumPage
+
+
+// <p> {thread.user.name}</p>
+// <p>{thread.description}</p>
+// <Comments thread={thread} movie={movie}/>
+
+/*{ show edit is true ?
+    show(an input with type text when on change, placeholder = thread.description, setdescription to e.target.value)
+    show button that calls an axios put with the req.body being the description and sets the showEdit to false
+    :
+    user.id === thread.user.id?
+    show thread.description
+    show button when onClick sets show edit to true
+    :show thread.description
+}
+*/
+
+/*
+
+{showEdit 
+?   
+<form className="editThreadForm">
+    <input type="tex" placeholder=`${thread.description}` onChange{(e)=>{setDescription}} />
+    <input className="threadEditButton" type="submit" oncClick={()=>{setShowEdit(false)}}value="Change" />
+</form>
+:   
+user.id === thread.user.id
+?
+<p>{thread.description}</p>
+<button onClick={()=>{setShowEdit(true)}}
+:
+<p>{thread.description}</p>
+}
+
+*/
