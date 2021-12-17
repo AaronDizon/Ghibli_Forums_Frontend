@@ -45,3 +45,8 @@
   height: 40vmin;
   width: auto;
 }
+
+.threadListContainer {
+  display:flex; 
+  flex-direction: column-reverse;
+}

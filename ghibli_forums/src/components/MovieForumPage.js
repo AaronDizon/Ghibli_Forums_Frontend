@@ -47,7 +47,7 @@ const MovieForumPage = () => {
         }
     }
 
-    useEffect(getThreads, [threadList.length])
+    useEffect(getThreads, [])
 
 
     return (
@@ -74,18 +74,20 @@ const MovieForumPage = () => {
                     {movie.release_date}
                 </div>
             </div>
-            <Threadform movie={movie} threadList={threadList}/>
+            <Threadform movie={movie} threadList={threadList} getThreads={getThreads}/>
+          <div className='threadListContainer'>
            {threadList.map((thread, i)=> {
                return (
-                   <div key={i} className='singleThreadContainer'>
+                   <div key={i} className='singleThread'>
                        <p> {thread.user.name}</p>
-                       <ThreadContainer thread={thread}/>
-                       <Comments thread={thread} movie={movie}/>
+                        <ThreadContainer thread={thread} getThreads={getThreads}/>
+                        <Comments thread={thread} movie={movie}/>
                        {/* <Commentform thread={thread} />
                        <CommentList threadId={thread.id} /> */}
                     </div>
                )
            })}
+           </div>
         </div>
     )
 }

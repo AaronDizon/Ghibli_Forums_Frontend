@@ -13,6 +13,7 @@ const Threadform = (props) => {
     const [description, setDescription] = useState('')
 
     const postForm = async (e) => {
+        e.preventDefault()
         console.log('working')
         if(description === '') {
             alert(`input can't be blank`)
@@ -22,6 +23,7 @@ const Threadform = (props) => {
             .then((response) => {
                 console.log(response)
                 setDescription('')
+                props.getThreads()
             })
         }
     }
