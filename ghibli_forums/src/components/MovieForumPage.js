@@ -79,7 +79,7 @@ const MovieForumPage = () => {
            {threadList.map((thread, i)=> {
                return (
                    <div key={i} className='singleThread'>
-                       <p> {thread.user.name}</p>
+                       <p className="threadUserName"> {thread.user.name}</p>
                         <ThreadContainer thread={thread} getThreads={getThreads}/>
                         <Comments thread={thread} movie={movie}/>
                        {/* <Commentform thread={thread} />

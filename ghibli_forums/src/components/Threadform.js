@@ -15,16 +15,20 @@ const Threadform = (props) => {
     const postForm = async (e) => {
         e.preventDefault()
         console.log('working')
-        if(description === '') {
-            alert(`input can't be blank`)
-        } else {
-            console.log('post is made to backend')
-            await axios.post(`${env.BACKEND_URL}/user/${user.id}/thread/${props.movie.id}`, {description})
-            .then((response) => {
-                console.log(response)
-                setDescription('')
-                props.getThreads()
-            })
+        if(user.id){
+            if(description === '') {
+                alert(`input can't be blank`)
+            } else {
+                console.log('post is made to backend')
+                await axios.post(`${env.BACKEND_URL}/user/${user.id}/thread/${props.movie.id}`, {description})
+                .then((response) => {
+                    console.log(response)
+                    setDescription('')
+                    props.getThreads()
+                })
+            }
+        }else {
+            alert('must be logged in!')
         }
     }
     // console.log(props.movie.id)

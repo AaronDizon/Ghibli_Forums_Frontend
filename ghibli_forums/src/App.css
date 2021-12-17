@@ -45,6 +45,12 @@
   height: 40vmin;
   width: auto;
 }
+/* -------- */
+.threadUserName {
+  text-decoration: underline;
+  font-size: 20px;
+}
+
 
 .threadListContainer {
   display:flex; 
