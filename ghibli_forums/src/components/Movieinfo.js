@@ -9,3 +9,4 @@ const Movieinfo = () => {
 }
 
 export default Movieinfo
+
