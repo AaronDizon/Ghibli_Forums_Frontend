@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Ghibli_Forums
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
 
-## Available Scripts
+The is a forums site for the Ghibli Studio Films. From the homepage, you will be able to click the individual movie images and be redirected to their own forums page. In this page, you can make your own threads and strike up engaging conversations with fellow Ghibli fans!
 
-In the project directory, you can run:
+### Wireframe
 
-### `yarn start`
+![Wireframe](./images/Database_schema.png)
+![Wireframe](./images/Ghibli_Forums_Wireframe.png)
+![Wireframe](./images/Ghibli_Forums_Components_Tree.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Stories
 
-### `yarn test`
+-When I go on the site, I see the images of the movies. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-I am able to successfully make an account or log into my account
 
-### `yarn build`
+-When I click on an image, I am able to go to the respective forums page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-I am able to write a thread and comment but an alert pops up saying I need to be logged in to post them 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-I am able to write a thread and comment and successfully post them when logged in 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-I am able to view all the threads from every forum when I view my own user page
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Routes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+|Routes                     | HTTP Verb                       | URL                            |
+| :----------------------: | ------------------------------- | ------------------------------- |
+| userRoute    | .post | '/'                   |
+| userRoute    | .post | '/login'              |
+| userRoute    | .get  | '/verify'             |
+| userRoute    | .post | '/thread/:movieId'    |
+| userRoute    | .get  | '/userId/allthreads/' |
+| userRoute    | .post | '/comment/:threadId ' |
+| userRoute    | .get  | '/comment/:commentId' |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+___
+### MVP
 
-## Learn More
+-Navigating through forums by the click of their image 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-React User Auth
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-Posting threads and comments associated with user
 
-### Code Splitting
+-Viewing threads from user page 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Stretch Goals
 
-### Analyzing the Bundle Size
+-useContext
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-password hashing
 
-### Making a Progressive Web App
+-like functionality of posts and comments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
