@@ -24,7 +24,7 @@ const Comments = (props) => {
     useEffect(getComments, [])
 
     return (
-        <div>
+        <div className="commentsContainer">
             <Commentform thread={props.thread} movie={props.movie} setComments={setComments}
             getComments={getComments}/>
             <CommentList threadId={props.thread.id} comments={comments} getComments={getComments}/>

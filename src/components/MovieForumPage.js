@@ -53,25 +53,31 @@ const MovieForumPage = () => {
     return (
         <div className='forumPage'>
             <div className='movieInfo'>
-                {movie.title}
+                <div className="titleContainer">
+                    <div className="movieTitle">
+                        {movie.title}
+                    </div >
+                </div>
                 <img src= {movie.image} alt={`${movie.title}`}/>
-                <div>
-                    {movie.original_title}
-                </div>
-                <div>
-                    {movie.original_title_romanised}
-                </div>
-                <div>
-                    {movie.description}
-                </div>
-                <div>
-                    {movie.director}
-                </div>
-                <div>
-                    {movie.producer}
-                </div>
-                <div>
-                    {movie.release_date}
+                <div className="movieTextContainer">
+                    <div className="movieOriginalTitle">
+                        {movie.original_title}
+                    </div>
+                    <div className="movieTitleRomanised">
+                        {movie.original_title_romanised}
+                    </div>
+                    <div className="movieDescription">
+                        {movie.description}
+                    </div>
+                    <div className="movieDirector">
+                        <p>{movie.director}</p>
+                    </div>
+                    <div className="movieProducer">
+                        <p>{movie.producer}</p>
+                    </div>
+                    <div className="movieReleaseDate">
+                        {movie.release_date}
+                    </div>
                 </div>
             </div>
             <Threadform movie={movie} threadList={threadList} getThreads={getThreads}/>
@@ -79,7 +85,9 @@ const MovieForumPage = () => {
            {threadList.map((thread, i)=> {
                return (
                    <div key={i} className='singleThread'>
+                   
                        <p className="threadUserName"> {thread.user.name}</p>
+                      
                         <ThreadContainer thread={thread} getThreads={getThreads}/>
                         <Comments thread={thread} movie={movie}/>
                        {/* <Commentform thread={thread} />

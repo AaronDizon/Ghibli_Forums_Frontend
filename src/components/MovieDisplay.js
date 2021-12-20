@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 const MovieDisplay = (props) => {
     return (
         <div className='movieDisplay'>
-             {props.movie.title}
+             <p className='movieDisplayTitle'>{props.movie.title}</p>
              <Link to={`/movie/${props.movie.id}`}>
              <img src= {props.movie.image} alt={`${props.movie.title}`}/>
              </Link>

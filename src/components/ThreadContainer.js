@@ -50,7 +50,7 @@ const ThreadContainer = (props) => {
             user.id === props.thread.user.id
             ?
             <div>
-                <p>{props.thread.description}</p>
+                <p className="threadDescription">{props.thread.description}</p>
                 <button onClick={()=>{setShowEdit(true)}}>Edit</button>
                 <button onClick={()=>{deleteThread()}}>Delete</button>
             </div>

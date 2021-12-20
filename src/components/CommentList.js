@@ -15,23 +15,25 @@ const CommentList = (props) => {
 
     // console.log(props.threadId)
     return (
-        <div className='commentsContainer'>
+        <div>
             {show
             ?
-            <div>
-                <p onClick={()=>{setShow(false)}}>Hide Comments</p>
-                {props.comments.map((comment, i)=> {
-                    return (
-                        <div key={i} className='singleComment'>
-                            <p>{comment.user.name}</p>
-                            <CommentContainer comment={comment} getComments={props.getComments}/>
-                        </div>
-                    )
-                })}
+            <div className='commentsContainer'>
+                <p clasName="viewComments" onClick={()=>{setShow(false)}}>Hide Comments</p>
+                <div className='commentsContainer'>
+                    {props.comments.map((comment, i)=> {
+                        return (
+                            <div key={i} className='singleComment'>
+                                <p className="commentUserName">{comment.user.name}</p>
+                                <CommentContainer comment={comment} getComments={props.getComments}/>
+                            </div>
+                        )
+                    })}
+                </div>
             
             </div>
             :
-            <p onClick={()=>{setShow(true)}}>View Comments</p>
+            <p clasName="viewComments" onClick={()=>{setShow(true)}}>View Comments</p>
             }
            
           
