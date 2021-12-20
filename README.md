@@ -31,13 +31,24 @@ The is a forums site for the Ghibli Studio Films. From the homepage, you will be
 
 |Routes                     | HTTP Verb                       | URL                            |
 | :----------------------: | ------------------------------- | ------------------------------- |
-| userRoute    | .post | '/'                   |
-| userRoute    | .post | '/login'              |
-| userRoute    | .get  | '/verify'             |
-| userRoute    | .post | '/thread/:movieId'    |
-| userRoute    | .get  | '/userId/allthreads/' |
-| userRoute    | .post | '/comment/:threadId ' |
-| userRoute    | .get  | '/comment/:commentId' |
+| movieRoute    | .get     | '/'                                  |
+| movieRoute    | .get     | '/:movieId'                          |
+| movieRoute    | .get     | '/:movideId/threads'                 |
+| movieRoute    | .get     | '/thread/:threadId/comments'         |
+| userRoute     | .post    | '/signup'                            |
+| userRoute     | .post    | '/login'                             |
+| userRoute     | .get     | '/verify'                            |
+| userRoute     | .post    | '/:userId/thread/:movieId'           |
+| userRoute     | .get     | '/userId/threads/'                   |
+| userRoute     | .post    | '/:userId/thread/:threadId/comment ' |
+| userRoute     | .get     | '/user/:threadId'                    |
+| userRoute     | .get     | '/user/:comentId'                    |
+| userRoute     | .put     | '/thread/:threadId'                  |
+| userRoute     | .put     | '/comment/:comentId'                 |
+| userRoute     | .delete  | '/thread/:threadId'                  |
+| userRoute     | .delete  | '/user/:comentId'                    |
+
+
 
 ___
 ### MVP
