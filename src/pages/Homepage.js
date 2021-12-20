@@ -35,9 +35,6 @@ const Homepage = () => {
             
         </Routes>
         <div className='homepage'>
-            <div className='homepageTitle'>
-                This is the Homepage
-            </div>
             <div className='movieContainer'>
                 {allMovies.map((movie, i) => {
                     return (

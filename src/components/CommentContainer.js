@@ -57,7 +57,7 @@ const CommentContainer = (props) => {
                 <button onClick={()=>{deleteComment()}}>Delete</button>
             </div>
             :
-            <p>{props.comment.description}</p>
+            <p className="commentDescription">{props.comment.description}</p>
             }
         </div>
     )

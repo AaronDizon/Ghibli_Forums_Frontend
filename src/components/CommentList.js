@@ -19,7 +19,7 @@ const CommentList = (props) => {
             {show
             ?
             <div className='commentsContainer'>
-                <p clasName="viewComments" onClick={()=>{setShow(false)}}>Hide Comments</p>
+                <p className="viewComments" onClick={()=>{setShow(false)}}>Hide Comments</p>
                 <div className='commentsContainer'>
                     {props.comments.map((comment, i)=> {
                         return (
@@ -33,7 +33,7 @@ const CommentList = (props) => {
             
             </div>
             :
-            <p clasName="viewComments" onClick={()=>{setShow(true)}}>View Comments</p>
+            <p className="viewComments" onClick={()=>{setShow(true)}}>View Comments</p>
             }
            
           

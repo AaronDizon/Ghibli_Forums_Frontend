@@ -93,6 +93,7 @@ const MovieForumPage = () => {
                        {/* <Commentform thread={thread} />
                        <CommentList threadId={thread.id} /> */}
                     </div>
+                    
                )
            })}
            </div>
