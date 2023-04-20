@@ -10,6 +10,7 @@ import Homepage from './pages/Homepage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import MovieForumPage from './components/MovieForumPage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
         <Login /> 
         } />
       </Routes>
+
     </div>
   );
 }

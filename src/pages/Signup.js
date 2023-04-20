@@ -35,7 +35,7 @@ const Signup = () => {
 
     return (
         <div>
-            This is the signup page
+            
             <h2>Signup</h2>
         <form className="LgnFrmCont" onSubmit={signupForm}>
             <div className='formInput'>

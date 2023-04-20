@@ -6,6 +6,7 @@ import axios from 'axios'
 import env from 'react-dotenv'
 import MovieDisplay from '../components/MovieDisplay';
 import MovieForumPage from '../components/MovieForumPage';
+import Footer from '../components/Footer';
 
 
 
@@ -43,6 +44,7 @@ const Homepage = () => {
                 })}
             </div>
         </div>
+        <Footer />
         </>
     )
 }

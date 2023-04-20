@@ -9,6 +9,7 @@ import Commentform from './Commentform'
 import CommentList from './CommentList'
 import Comments from './Comments'
 import ThreadContainer from './ThreadContainer'
+import Footer from './Footer'
 
 const MovieForumPage = () => {
 
@@ -97,6 +98,8 @@ const MovieForumPage = () => {
                )
            })}
            </div>
+           <hr/>
+           <Footer />
         </div>
     )
 }
