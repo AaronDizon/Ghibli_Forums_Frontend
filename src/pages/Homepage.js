@@ -43,8 +43,8 @@ const Homepage = () => {
                     )
                 })}
             </div>
+            <Footer />
         </div>
-        <Footer />
         </>
     )
 }
